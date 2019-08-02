@@ -37,7 +37,7 @@ app.get('/searchCheckInfo', async function (req, res) {
 	let passwordTemp = req.param('password');
 	console.log(req.param('loginid'));
 	console.log(req.param('password'));
-	if(sessionkey == '' && loginid == loginidTemp){
+	if(sessionkey == '' || loginid != loginidTemp){
 		console.log('111111111');
 		let key = await getSessionKey(loginidTemp, passwordTemp);
   		let info = await searchCheckInfo(key);
