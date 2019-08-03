@@ -33,12 +33,10 @@ var app = new Vue({
 		setCookie: function (){
 			console.log('cookie' + this.id);
 			setCookie('id', this.id, 365);
-			if(response.data['status'] != undefined && response.data['status'] == 'fail'){
-				this.$buefy.toast.open({
-				    message: '用户设置成功！',
-				    type: 'is-dark'
-				});
-			}
+			this.$buefy.toast.open({
+			    message: '用户设置成功！',
+			    type: 'is-dark'
+			});
 			this.searchCheckInfo();
 		},
 		searchCheckInfo: function(){
