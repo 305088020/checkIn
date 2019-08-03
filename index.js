@@ -28,7 +28,10 @@ var app = new Vue({
 	},
 	methods: {
 		getCookie: function(){
-			this.id = getCookie('id');
+			if (getCookie('id') != undefined) {
+				this.id = getCookie('id');
+			}
+			
 		},
 		setCookie: function (){
 			console.log('cookie' + this.id);
