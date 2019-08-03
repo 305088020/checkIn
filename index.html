@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Hello World</title>
+	<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+	<script src="js/vue.js"></script>
+	<!-- Buefy CSS -->
+	<link rel="stylesheet" href="css/buefy.min.css">
+	<!-- Buefy JavaScript -->
+	<script src="js/buefy.min.js"></script>
+	<!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 -->
+	<!-- 提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。 -->
+	<script src="js/axios.min.js"></script>
+	<script src="js/lodash.min.js"></script>
+	<script src="js/format.js"></script>
+	<script src="js/cookie.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bulma.min.css">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	
+    <script type="text/javascript">
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+   			
+   		});
+   		
+    </script>
+</head>
+<body>
+	<div class="container" id="app">
+		<div class="columns is-gapless">
+			<div class="column">
+				<div class="tile is-ancestor">
+					<div class="tile is-vertical is-8">
+						<div class="tile">
+						  <div class="tile is-parent is-vertical">
+							<article class="tile is-child notification is-primary">
+							  <section class="section">
+								<div class="media">
+								  <div class="media-left">
+									<i class="fa fa-calendar-check-o fa-4x" aria-hidden="true"></i> 
+								  </div>
+								  <div class="media-content" >
+									<h1 class="title">{{day}}</h1>
+									<h2 class="subtitle">
+										{{date}}
+									</h2>
+								  </div>
+								  <div class="media-right">
+									<figure class="image is-48*48">
+										<i class="fa fa-user fa-2x" aria-hidden="true"></i>
+									</figure>
+								  </div>
+								</div>
+							  </section>
+							</article>
+						  </div>
+						</div>
+					</div>
+				</div>
+		  </div>
+			<div class="column is-centered">
+				<div class="notification">
+					<div class="columns is-mobile">
+					<b-input class="is-small" v-model="id"></b-input>&nbsp;&nbsp;&nbsp;
+					<b-button type="" @click='setCookie()'>设置</b-button>
+					<div class="column"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="column">
+			  <div class="card-content">
+			  	<div class="notification">
+			  		<nav class="level">
+			  		  <div class="level-item has-text-centered">
+			  			  <i class="fa fa-clock-o fa" aria-hidden="true"></i> &nbsp;
+			  			<article class="media">
+			  				08:00&nbsp;&nbsp;&nbsp;上班
+			  			</article>
+			  		  </div>
+			  		  <div class="level-item has-text-centered">
+			  			<button @click="checkin" :disabled="checkInFlag"  class="button is-primary">
+			  				&nbsp;&nbsp;&nbsp;&nbsp;签&nbsp;&nbsp;&nbsp;&nbsp;到&nbsp;&nbsp;&nbsp;&nbsp;
+			  			</button>
+			  		  </div>
+			  		  <div class="level-item has-text-centered">
+			  			<p>{{checkInfo}}</p>
+			  		  </div>
+			  		  <div class="level-item has-text-centered">
+			  			<i class="fa fa-clock-o fa" aria-hidden="true"></i> &nbsp;
+			  			<article class="media">
+			  				17:00&nbsp;&nbsp;&nbsp;下班
+			  			</article>
+			  		  </div>
+			  		  <div class="level-item has-text-centered">
+			  			<button @click="checkout" :disabled="checkOutFlag" class="button is-primary">
+			  				&nbsp;&nbsp;&nbsp;&nbsp;签&nbsp;&nbsp;&nbsp;&nbsp;退&nbsp;&nbsp;&nbsp;&nbsp;
+			  			</button>
+			  		  </div>
+			  		  <div class="level-item has-text-centered">
+			  			<p>{{checkOutInfo}}</p>
+			  		  </div>
+			  		</nav>
+			  	</div>
+			  </div>
+		  </div>
+		<div class="column">
+			  <div class="content has-text-centered">
+				<div class="notification is-primary" v-if="returnMessage">
+					{{returnMessage}}
+				</div>
+			  </div>
+		</div>
+	</div>
+	<script src="index.js"></script>
+</body>
+</html>
