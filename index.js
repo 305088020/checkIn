@@ -34,7 +34,7 @@ var app = new Vue({
 			console.log('cookie' + this.id);
 			setCookie('id', this.id, 365);
 			this.$buefy.toast.open({
-			    message: '用户设置成功！11',
+			    message: '用户设置成功！',
 			    type: 'is-dark'
 			});
 			this.searchCheckInfo();
