@@ -53,10 +53,10 @@ async function setData(req, res, type){
 		info = await searchCheckInfo(key,udidTemp,useridTemp,userKeyTemp);
 	}else if (type == 'checkIn'){
 		console.log('checkIn-------->')
-		info = await searchCheckInfo(key,udidTemp,useridTemp,userKeyTemp);
+		info = await checkin(key,udidTemp,useridTemp,userKeyTemp);
 	}else if (type == 'checkOut'){
 		console.log('checkOut-------->')
-		info = await searchCheckInfo(key,udidTemp,useridTemp,userKeyTemp);
+		info = await checkout(key,udidTemp,useridTemp,userKeyTemp);
 	}
 	res.json(info)
 }
