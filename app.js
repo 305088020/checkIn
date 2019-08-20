@@ -43,10 +43,11 @@ async function setData(req, res, type){
 	let udidTemp = objUser['udid'];
 	let useridTemp = objUser['userid'];
 	let userKeyTemp = objUser['userKey'];
+	let clienttypeTemp = objUser['clienttype'];
 	
 
 	// 发送查询信息
-	let key = await getSessionKey(loginidTemp, passwordTemp, udidTemp);
+	let key = await getSessionKey(loginidTemp, passwordTemp, udidTemp, clienttypeTemp);
 	let info;
 	if(type == 'searchInfo'){
 		console.log('searchInfo-------->')
@@ -62,8 +63,8 @@ async function setData(req, res, type){
 }
 
 // 获取sessionKey
-async function getSessionKey(loginid,password,udid){
-	let url = 'http://w.hnthinker.com:89/client.do?method=login&loginid='+loginid+'&password='+password+'&isneedmoulds=1&client=1&clientver=6.5.49.1&udid='+udid+'&token=&clientos=OPM1.171019.019&clientosver=8.1.0&clienttype=iPhone&language=zh&country=CN&authcode=&dynapass=&tokenpass=&relogin=0&clientuserid=&tokenFromThird=&signatureValue=&signAlg=&randomNumber=&cert=';
+async function getSessionKey(loginid,password,udid,clienttype){
+	let url = 'http://w.hnthinker.com:89/client.do?method=login&loginid='+loginid+'&password='+password+'&isneedmoulds=1&client=1&clientver=6.5.49.1&udid='+udid+'&token=&clientos=OPM1.171019.019&clientosver=8.1.0&clienttype='+clienttype+'&language=zh&country=CN&authcode=&dynapass=&tokenpass=&relogin=0&clientuserid=&tokenFromThird=&signatureValue=&signAlg=&randomNumber=&cert=';
 	console.log('url--->' + url);
 	return await axios.post(url)
       .then(function (response) {
