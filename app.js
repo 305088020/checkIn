@@ -63,9 +63,9 @@ async function setData(req, res, type){
 
 // 获取sessionKey
 async function getSessionKey(loginid,password,udid){
-	let url = 'http://w.hnthinker.com:89/client.do?method=login&loginid='+loginid+'&password='+password+'&isneedmoulds=1&client=1&clientver=6.5.49.1&udid='+udid+'&token=&clientos=OPM1.171019.019&clientosver=8.1.0&clienttype=android&language=zh&country=CN&authcode=&dynapass=&tokenpass=&relogin=0&clientuserid=&tokenFromThird=&encryptpassword=1&signatureValue=&signAlg=&randomNumber=&cert=';
+	let url = 'http://w.hnthinker.com:89/client.do?method=login&loginid='+loginid+'&password='+password+'&isneedmoulds=1&client=1&clientver=6.5.49.1&udid='+udid+'&token=&clientos=OPM1.171019.019&clientosver=8.1.0&clienttype=iPhone&language=zh&country=CN&authcode=&dynapass=&tokenpass=&relogin=0&clientuserid=&tokenFromThird=&signatureValue=&signAlg=&randomNumber=&cert=';
 	console.log('url--->' + url);
-	return await axios.get(url)
+	return await axios.post(url)
       .then(function (response) {
         return response.data.sessionkey;
       })
@@ -130,7 +130,6 @@ app.listen(3010, () => {
 	//由JSON字符串转换为JSON对象
 	user = JSON.parse(data); 
 	// console.log("同步读取: " + user.toString());
-
 	console.log('Example app listening on port 3010!');
 })
 
