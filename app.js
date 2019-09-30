@@ -93,7 +93,7 @@ async function searchCheckInfo(sessionkey,udid,userid,userKey){
 
 //checkin
 async function checkin(sessionkey,udid,userid,userKey){
-	return await axios.get('http://w.hnthinker.com:89/client.do?method=checkin&type=checkin&latlng=34.805278,113.539343&addr=%E6%B2%B3%E5%8D%97%E7%9C%81%E9%83%91%E5%B7%9E%E5%B8%82%E4%B8%AD%E5%8E%9F%E5%8C%BA%E7%8E%89%E5%85%B0%E8%A1%9795%E9%9D%A0%E8%BF%91%E6%B2%B3%E5%8D%97%E6%80%9D%E7%BB%B4',
+	return await axios.get('http://w.hnthinker.com:89/client.do?method=checkin&type=checkin&latlng=34.81048773871528,113.4884301757812&addr=%E6%B2%B3%E5%8D%97%E7%9C%81%E9%83%91%E5%B7%9E%E5%B8%82%E4%B8%AD%E5%8E%9F%E5%8C%BA%E7%A7%91%E5%AD%A6%E5%A4%A7%E9%81%93IT%E4%BA%A7%E4%B8%9A%E5%9B%AD(%E8%93%9D%E4%BF%A1)',
 		{
 			headers: {"Cookie": 'userid='+userid+'; userKey='+userKey+'; JSESSIONID='+sessionkey+'; ClientUDID='+udid+'; ClientToken=; ClientVer=6.5.49.1; ClientType=android; ClientLanguage=zh; ClientCountry=CN; ClientMobile=; setClientOS=OPM1.171019.019; setClientOSVer=8.1.0; Pad=false'},
 		})
@@ -109,7 +109,7 @@ async function checkin(sessionkey,udid,userid,userKey){
 
 // checkout
 async function checkout(sessionkey,udid,userid,userKey){
-	return await axios.get('http://w.hnthinker.com:89/client.do?method=checkin&type=checkout&latlng=34.805278,113.539343&addr=%E6%B2%B3%E5%8D%97%E7%9C%81%E9%83%91%E5%B7%9E%E5%B8%82%E4%B8%AD%E5%8E%9F%E5%8C%BA%E7%8E%89%E5%85%B0%E8%A1%9795%E9%9D%A0%E8%BF%91%E6%B2%B3%E5%8D%97%E6%80%9D%E7%BB%B4',
+	return await axios.get('http://w.hnthinker.com:89/client.do?method=checkin&type=checkout&latlng=34.81048773871528,113.4884301757812&addr=%E6%B2%B3%E5%8D%97%E7%9C%81%E9%83%91%E5%B7%9E%E5%B8%82%E4%B8%AD%E5%8E%9F%E5%8C%BA%E7%A7%91%E5%AD%A6%E5%A4%A7%E9%81%93IT%E4%BA%A7%E4%B8%9A%E5%9B%AD(%E8%93%9D%E4%BF%A1)',
 		{
 			headers: {"Cookie": 'userid='+userid+'; userKey='+userKey+'; JSESSIONID='+sessionkey+'; ClientUDID='+udid+'; ClientToken=; ClientVer=6.5.49.1; ClientType=android; ClientLanguage=zh; ClientCountry=CN; ClientMobile=; setClientOS=OPM1.171019.019; setClientOSVer=8.1.0; Pad=false'},
 		})
