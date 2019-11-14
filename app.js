@@ -50,13 +50,13 @@ async function setData(req, res, type){
 	let key = await getSessionKey(loginidTemp, passwordTemp, udidTemp, clienttypeTemp);
 	let info;
 	if(type == 'searchInfo'){
-		console.log('searchInfo-------->')
+		// console.log('searchInfo-------->')
 		info = await searchCheckInfo(key,udidTemp,useridTemp,userKeyTemp);
 	}else if (type == 'checkIn'){
-		console.log('checkIn-------->')
+		// console.log('checkIn-------->')
 		info = await checkin(key,udidTemp,useridTemp,userKeyTemp);
 	}else if (type == 'checkOut'){
-		console.log('checkOut-------->')
+		// console.log('checkOut-------->')
 		info = await checkout(key,udidTemp,useridTemp,userKeyTemp);
 	}
 	res.json(info)
@@ -65,13 +65,13 @@ async function setData(req, res, type){
 // 获取sessionKey
 async function getSessionKey(loginid,password,udid,clienttype){
 	let url = 'http://w.hnthinker.com:89/client.do?method=login&loginid='+loginid+'&password='+password+'&isneedmoulds=1&client=1&clientver=6.5.49.1&udid='+udid+'&token=&clientos=OPM1.171019.019&clientosver=8.1.0&clienttype='+clienttype+'&language=zh&country=CN&authcode=&dynapass=&tokenpass=&relogin=0&clientuserid=&tokenFromThird=&signatureValue=&signAlg=&randomNumber=&cert=';
-	console.log('url--->' + url);
+	// console.log('url--->' + url);
 	return await axios.post(url)
       .then(function (response) {
         return response.data.sessionkey;
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       });
 }
 
@@ -82,12 +82,12 @@ async function searchCheckInfo(sessionkey,udid,userid,userKey){
 			headers: {"Cookie": 'userid='+userid+'; userKey='+userKey+'; JSESSIONID='+sessionkey+'; ClientUDID='+udid+'; ClientToken=; ClientVer=6.5.49.1; ClientType=android; ClientLanguage=zh; ClientCountry=CN; ClientMobile=; setClientOS=OPM1.171019.019; setClientOSVer=8.1.0; Pad=false'},
 		})
       .then(function (response) {
-      	console.log(response.data);
+      	// console.log(response.data);
       	return response.data
       })
       .catch(function (error) {
       	res.json(error)
-        console.log(error);
+        // console.log(error);
       });
 }
 
@@ -98,12 +98,12 @@ async function checkin(sessionkey,udid,userid,userKey){
 			headers: {"Cookie": 'userid='+userid+'; userKey='+userKey+'; JSESSIONID='+sessionkey+'; ClientUDID='+udid+'; ClientToken=; ClientVer=6.5.49.1; ClientType=android; ClientLanguage=zh; ClientCountry=CN; ClientMobile=; setClientOS=OPM1.171019.019; setClientOSVer=8.1.0; Pad=false'},
 		})
       .then(function (response) {
-      	console.log(response.data);
+      	// console.log(response.data);
       	return response.data
       })
       .catch(function (error) {
       	res.json(error)
-        console.log(error);
+        // console.log(error);
       });
 }
 
@@ -114,12 +114,12 @@ async function checkout(sessionkey,udid,userid,userKey){
 			headers: {"Cookie": 'userid='+userid+'; userKey='+userKey+'; JSESSIONID='+sessionkey+'; ClientUDID='+udid+'; ClientToken=; ClientVer=6.5.49.1; ClientType=android; ClientLanguage=zh; ClientCountry=CN; ClientMobile=; setClientOS=OPM1.171019.019; setClientOSVer=8.1.0; Pad=false'},
 		})
       .then(function (response) {
-      	console.log(response.data);
+      	// console.log(response.data);
       	return response.data
       })
       .catch(function (error) {
       	res.json(error)
-        console.log(error);
+        // console.log(error);
       });
 }
 
